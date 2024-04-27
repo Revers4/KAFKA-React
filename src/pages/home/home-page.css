@@ -1,0 +1,22 @@
+.animeList{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:50px
+}
+.HomePageName{
+    position: sticky;
+    margin-top: 2rem;
+    color: #13020d;
+    margin-bottom: 8px;
+    text-shadow: #FFF 0px 0px 1px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 5px 5px
+}
+.HomePageLink{
+    text-decoration: none;
+}
+.HomePagePoster{
+    border: 0.5px solid #13020d;
+    border-radius: 8px;
+    width: 225px;
+    height: 318px;
+    object-fit: cover;
+}

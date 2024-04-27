@@ -1,0 +1,38 @@
+#root {
+  height: 100%;
+  background: linear-gradient(-45deg, #884530, #802346, #3a1e31, #9b3d94);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #3a1e3154;
+  width: 80%;
+  max-height: max-content;
+  min-height: 100vh;
+  box-shadow: 4px 4px 36px 5px rgba(195, 0, 255, 0.2);
+}
+body {
+  height: 100%;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+a{
+  text-decoration: none;
+}

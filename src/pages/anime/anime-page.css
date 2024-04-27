@@ -1,0 +1,93 @@
+.container-light {
+  background-color: white !important;
+  color: black;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 80%;
+  max-height: max-content;
+  min-height: 100vh;
+}
+  
+.container-dark {
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #3a1e3154;
+  width: 80%;
+  max-height: max-content;
+  min-height: 100vh;
+  box-shadow: 4px 4px 36px 5px rgba(195, 0, 255, 0.2);
+}
+.main{
+  display: flex;
+}
+.AnimePageGenre{
+  font-size: 30px;
+  color: #fefaf8;
+  text-decoration: none;
+  background-color: #9b3d94;
+  border: 0.5px solid #13020d;
+  padding: 5px;
+  border-radius: 7px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease 0s;
+}
+.AnimePageGenre:hover{
+  background-color: #9b3d958e;
+}
+.AnimePageGenreList{
+  display: flex;
+  margin: 25px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.AnimePageName{
+  text-shadow: 3px 0 #13020d, 0 -2px #13020d, -2px 0 #13020d, 0 2px #13020d;
+  font-size: 40px;
+  color: #9b3d94;
+  padding-bottom: 9px;
+}
+.AnimePageDesctiprion{
+  padding-left: 3vh;
+  padding-right: 3vh;
+  font-size: 23px;
+  color: #fefaf8;
+}
+.AnimePagePoster{
+  width: 300px;
+  object-fit: contain;
+}
+.animePagedescriptionDiv{
+  flex: 1;
+}
+.AnimeScreenShoot{
+  width: 400px;
+  margin: 2rem 2rem 2rem ;
+  transition: transform 0.5s;
+}
+.AnimeScreenShoot:hover{
+  transform: scale(1.1);
+}
+.AnimePageCharacterDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 250px;
+}
+.AnimePageAddToFavorite{
+  filter: drop-shadow(0px 0px 5px rgba(145, 0, 65, 0.78));
+  cursor: pointer;
+  width: 3rem;
+}
+.AnimePageAddToFavorite:active{
+  scale: 0.9;
+}
+.KAFKA{
+  background-color: transparent;
+}
+.AnimeOption{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

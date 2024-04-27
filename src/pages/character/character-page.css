@@ -1,0 +1,49 @@
+.CharacterPageH1Name{
+    display: flex;
+    font-size: 38px;
+    padding-bottom: 1rem;
+    color: aliceblue;
+}
+.CharacterPagePoster{
+    width: 300px;
+    padding-right: 2rem;
+    object-fit: contain;
+}
+.CharacterPageMain{
+    display: flex;
+}
+.CharacterNamesDiv{
+    margin-right: 4rem;
+}
+.CharacterSubHeadline{
+    border-left: 5px solid #9b3d9554;
+    padding-left: 8px;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    background-color: #9b3d9554;
+    width: 300px;
+    margin-bottom: 1rem;
+}
+.CharacterSubHeadDescription{
+    border-left: 5px solid #9b3d9554;
+    padding-left: 8px;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    background-color: #9b3d9554;
+}
+.oneOfTheOption{
+    font-size: 18px;
+    color: aliceblue;
+    display: flex;
+    margin-bottom: 1rem;
+}
+.CharacterNameAndVA{
+    display: flex;
+}
+.CharacterPageDescriptionP{
+    text-align: left;
+    color: aliceblue;
+    font-size: 20px;
+}
