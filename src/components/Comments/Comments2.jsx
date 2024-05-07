@@ -121,7 +121,6 @@ const Comments = () => {
             )}
           </header>
           <TextareaAutosize
-            cacheMeasurements
             placeholder="Ваш комментарий"
             required
             minRows={5}

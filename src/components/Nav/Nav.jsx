@@ -50,15 +50,23 @@ export default function Nav() {
         </div>
         {userContext.user ? (
           <>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <ReqBar condition={isOpen} />
+            <div
+              className="NavDivAvatar"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <ReqBar
+                isOpen={isOpen}
+                isOpen2={isOpen2}
+                setIsOpen={setIsOpen}
+                setIsOpen2={setIsOpen2}
+              />
               <div className="enter">
                 <div
                   onClick={() => {
                     if (isOpen2) {
-                      setIsOpen2(false);
+                      setIsOpen2(false), setIsOpen(false);
                     } else {
-                      setIsOpen2(true);
+                      setIsOpen2(true), setIsOpen(false);
                     }
                   }}
                   style={{ display: "flex", alignItems: "center" }}

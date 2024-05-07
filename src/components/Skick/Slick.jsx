@@ -1,7 +1,6 @@
-import { getFavoriteAnimeAPI } from "../../api/getFavoriteAnimeAPI";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getFavotireAPI } from "../../api/favorites";
+import { getFavotireAPI, getFavoriteAnimeAPI } from "../../api/favorites";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import React, { Component } from "react";
@@ -11,24 +10,25 @@ import "./slick.css";
 
 export default function Carousel() {
   const params = useParams();
-  const [loginParams, setLoginparams] = useState(params.Login || "");
   const [fAnimes, setFAnimes] = useState([]);
 
   async function getFavorite() {
-    const data = await getFavotireAPI(loginParams);
+    const data = await getFavotireAPI(params.Login);
     if (!data) {
+      setFAnimes([]);
       return;
     }
     const dataId = data.map((e) => {
       return e.id;
     });
-    const fAnime = await getFavoriteAnimeAPI(dataId);
+    const fAnime = await getFavoriteAnimeAPI(dataId, 5, 1);
+    console.log(fAnime);
     setFAnimes(fAnime);
   }
 
   useEffect(() => {
     getFavorite();
-  }, []);
+  }, [params.Login]);
 
   const settings = {
     className: "center",

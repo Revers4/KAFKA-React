@@ -60,3 +60,37 @@ export async function seeTheReqAPI(notSeenReqCount) {
     return responseData;
   }
 }
+
+export async function friendsListAPI(params) {
+  const res = await fetch(
+    `http://localhost:3000/friends-list/${params.Login}`,
+    {
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    throw new Error("Requset failed");
+  }
+  const data = await res.json();
+  return data;
+}
+
+export async function removeAFriendAPI(friend_id) {
+  const response = await fetch("http://localhost:3000/friend", {
+    body: JSON.stringify({
+      id: friend_id,
+    }),
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+  if (response.ok) {
+    const responseData = await response.json();
+    return responseData;
+  }
+}

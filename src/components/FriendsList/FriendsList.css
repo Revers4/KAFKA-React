@@ -1,0 +1,53 @@
+.FriendLink{
+    display: flex;
+    align-items: center;
+    color: #fefaf8;
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+.FriendImg{
+    margin-right: 8px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 0.5px solid #13020d;
+    height: 50px;
+    width: 50px;
+}
+.FriendListDiv{
+    position: relative;
+}
+.FriendListDiv img{
+    object-fit: cover;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+.FriendDropDown{
+    box-shadow: rgba(255, 0, 212, 0.377) 1px 4px 20px 5px;
+    border-radius: 7px;
+    border: 0.5px solid #13020d;
+    padding: 8px;
+    z-index: 1;
+    position: absolute;
+    width: 160px;
+    background-color: #13020d;
+    color: #fefaf8;
+    left: -60px;
+}
+.FriendDropDown div{
+    border-radius: 5px;
+    margin-bottom: 6px;
+    border: 1px solid #9b3d958c;
+    padding: 4px;
+    cursor: pointer;
+}
+.FriendDeletButton{
+    margin-bottom: 4px !important;
+    border: 1px solid #ff170f8c !important;
+    color: rgba(187, 60, 60, 0.726);
+}
+.FriendsListli{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

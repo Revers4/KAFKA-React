@@ -1,0 +1,6 @@
+.NavBarSword{
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    margin-right: 2px;
+}

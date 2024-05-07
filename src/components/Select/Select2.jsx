@@ -6,7 +6,6 @@ import { addToWAPI } from "../../api/favorites";
 
 export default function Select2({ status }) {
   const params = useParams();
-  const [condition, setCondition] = useState("");
   const data = [
     {
       status: "watching",

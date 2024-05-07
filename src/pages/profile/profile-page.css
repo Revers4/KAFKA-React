@@ -1,32 +1,33 @@
 .ProfilePageAvatar{
     object-fit: cover;
-    width: 260px;
-    height: 260px;
-}
-.ProfilePageEdit{
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    padding-bottom: 1rem;
+    width: 280px;
+    height: 280px;
+    border: 0.5px solid #13020d;
+    border-radius: 8px;
 }
 .ProfileLoginName{
+    margin-bottom: 1rem;
+    text-align: left;
     font-size: 38px;
     color: aliceblue;
     font-weight: 500;
 }
-.ProfilePageMain{
-    display: flex;
+.ProfileInfo{
+    padding-top: 59px;
 }
 .ProfileDiv{
     display: flex;
     margin-bottom: 2rem;
 }
 .ProfileFriends{
+    border: #13020d 0.5px solid;
+    border-radius: 8px;
+    padding: 12px;
     min-height: 150px;
     margin-right: 4rem;
 }
 .ProfileSubHeadline{
-    min-width: 487px;
+    min-width: 500px;
     border-left: 5px solid #9b3d9554;
     padding-left: 8px;
     font-size: 24px;
@@ -34,6 +35,20 @@
     display: flex;
     background-color: #9b3d9554;
     margin-bottom: 1rem;
+    color: aliceblue;
+    border-radius: 4px;
+}
+.ProfileSubHeadline2{
+    color: aliceblue;
+    border-left: 5px solid #9b3d9554;
+    padding-left: 8px;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    background-color: #9b3d9554;
+    width: 300px;
+    margin-bottom: 1rem;
+    border-radius: 4px;
 }
 .ProfileEdit{
     display: flex;
@@ -71,7 +86,6 @@
     flex-direction: column;
     display: flex;
     min-width: 300px;
-    margin-right: 3rem;
 }
 .AddToFriend div{
     margin-left: 15px;
@@ -79,12 +93,13 @@
 .AddToFriend span{
     margin-left: 5px;
 }
-.ProfileNavBar{
+.ProfilePageMain{
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    left: 0;
+}
+.ProfileFavoriteDiv{
+    min-height: 296px;
+    border: 0.5px solid #13020d;
+    border-radius: 8px;
+    padding: 12px 26px 12px 26px;
 }

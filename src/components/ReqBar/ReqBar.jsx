@@ -3,12 +3,11 @@ import { useContext, useState, useEffect } from "react";
 import { UserContext, ReqContext } from "../../App";
 import { answerARequestAPI } from "../../api/friend";
 import { seeTheReqAPI } from "../../api/friend";
+import "./ReqBar.css";
 
-export default function ReqBar() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function ReqBar({ isOpen, isOpen2, setIsOpen, setIsOpen2 }) {
   const userContext = useContext(UserContext);
   const reqContext = useContext(ReqContext);
-  const navigate = useNavigate();
   const [notSeenReqCount, setNotSeenReqCount] = useState([]);
 
   function CountNotSeenReq() {
@@ -96,9 +95,7 @@ export default function ReqBar() {
               </div>
             )}
           </div>
-          <div
-            style={{ display: "flex", position: "relative", cursor: "pointer" }}
-          >
+          <div className="NavBarSword">
             <span className="NavСount">
               {notSeenReqCount == 0
                 ? null
@@ -109,12 +106,12 @@ export default function ReqBar() {
             <img
               onClick={() => {
                 if (isOpen) {
-                  setIsOpen(false);
+                  setIsOpen(false), setIsOpen2(false);
                 } else {
                   if (notSeenReqCount.length > 0) {
                     seeTheReq();
                   }
-                  setIsOpen(true);
+                  setIsOpen(true), setIsOpen2(false);
                 }
               }}
               className="bell"

@@ -8,6 +8,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import Carousel from "../../components/Skick/Slick";
 import axios from "axios";
 import { sendARequestsAPI, answerARequestAPI } from "../../api/friend";
+import FriendsList from "../../components/FriendsList/FriendsList";
+import ProfNavBar from "../../components/ProfNavBar/ProfNavBar";
 
 export default function ProfilePage() {
   const context = useContext(ThemeContext);
@@ -15,19 +17,30 @@ export default function ProfilePage() {
   const reqContext = useContext(ReqContext);
   const params = useParams();
   const navigate = useNavigate();
+  const page = 1;
 
-  const [loginParams, setLoginparams] = useState(params.Login || "");
   const [profileData, setProfileData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [changeLogin, setChangeLogin] = useState(false);
-  const [login, setLogin] = useState(loginParams);
+  const [login, setLogin] = useState(params.Login);
   const [edit, setEdit] = useState(false);
   const [img, setImg] = useState(null);
   const [isFriend, setIsFriend] = useState("NoOne");
 
+  function isThisYou() {
+    if (userContext.user) {
+      if (userContext.user.login == params.Login) {
+        setEdit(true);
+      } else {
+        setEdit(false);
+      }
+    }
+  }
+
   async function getProfff() {
-    const getData = await getProfileeAPI(loginParams);
+    const getData = await getProfileeAPI(params.Login);
     if (getData) {
+      isThisYou();
       setProfileData(getData);
     }
   }
@@ -75,11 +88,7 @@ export default function ProfilePage() {
   }, [img]);
 
   useEffect(() => {
-    if (userContext.user) {
-      if (userContext.user.login == loginParams) {
-        setEdit(true);
-      }
-    }
+    isThisYou();
   }, [userContext]);
 
   useEffect(() => {
@@ -104,13 +113,13 @@ export default function ProfilePage() {
         }
       });
     }
-  }, [reqContext]);
+  }, [reqContext, params]);
 
   useEffect(() => {
     getProfff().then(() => {
       setIsLoading(false);
     });
-  }, []);
+  }, [params]);
 
   if (!isLoading && profileData == null) {
     return (
@@ -133,38 +142,30 @@ export default function ProfilePage() {
             context.theme === "dark" ? "container-dark" : "container-light"
           }
         >
-          {/* <nav className="ProfileNavBar">
-            <div>123</div>
-            <div>123</div>
-            <div>123</div>
-            <div>123</div>
-            <div>123</div>
-          </nav> */}
-          <div className="ProfilePageEdit">
-            {changeLogin ? (
-              <>
-                <input
-                  maxLength={10}
-                  type="text"
-                  value={login}
-                  onChange={(e) => setLogin(e.target.value)}
-                />
-                <button
-                  onClick={() => {
-                    changeLoginnnn().then(() => {
-                      setChangeLogin(false);
-                    });
-                  }}
-                >
-                  Submit
-                </button>
-              </>
-            ) : (
-              <h1 className="ProfileLoginName">{login}</h1>
-            )}
-          </div>
           <div className="ProfilePageMain">
+            <ProfNavBar page={page} params={params} />
             <div className="ProfileAvatarDiv">
+              {changeLogin ? (
+                <>
+                  <input
+                    maxLength={10}
+                    type="text"
+                    value={login}
+                    onChange={(e) => setLogin(e.target.value)}
+                  />
+                  <button
+                    onClick={() => {
+                      changeLoginnnn().then(() => {
+                        setChangeLogin(false);
+                      });
+                    }}
+                  >
+                    Submit
+                  </button>
+                </>
+              ) : (
+                <h1 className="ProfileLoginName">{params.Login}</h1>
+              )}
               {profileData.avatar_url ? (
                 <img
                   className="ProfilePageAvatar"
@@ -232,18 +233,13 @@ export default function ProfilePage() {
             <div className="ProfileInfo">
               <div className="ProfileDiv">
                 <div className="ProfileFriends">
-                  <div className="CharacterSubHeadline">Друзья</div>
-                  <div>
-                    <div className="oneOfTheOptions"></div>
-                  </div>
+                  <div className="ProfileSubHeadline2">Друзья</div>
+                  <FriendsList edit={edit} />
                 </div>
-                <div className="CharacterVAdiv">
+                <div className="ProfileFavoriteDiv">
                   <div className="ProfileSubHeadline">Избранное</div>
                   <Carousel />
                 </div>
-              </div>
-              <div className="CharacterPageDescription">
-                <div className="CharacterSubHeadDescription">Обо мне</div>
               </div>
             </div>
           </div>
@@ -253,7 +249,8 @@ export default function ProfilePage() {
   return (
     <>
       <Nav />
-      <div className="container">
+      <div className="container-dark">
+        <ProfNavBar page={page} params={params} />
         <div className="main">
           <h1>Loading.....</h1>
         </div>

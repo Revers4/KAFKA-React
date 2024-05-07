@@ -9,6 +9,7 @@ import { refreshTokenAPI } from "./api/auth.js";
 import { getProfileAPI } from "./api/profile.js";
 import ProfilePage from "./pages/profile/ProfilePage.jsx";
 import { getRequestsAPI } from "./api/friend.js";
+import Favorites from "./pages/profilePages/Favorites.jsx";
 
 export const ThemeContext = createContext(null);
 export const UserContext = createContext(null);
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/profile/:Login",
     element: <ProfilePage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/profile/:Login/favorites",
+    element: <Favorites />,
     errorElement: <NotFoundPage />,
   },
 ]);

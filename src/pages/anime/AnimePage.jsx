@@ -45,13 +45,13 @@ export default function AnimePage() {
   }
 
   async function AddToFavorite() {
-    const data = await addToFavoriteAPI(params);
+    const data = await addToFavoriteAPI(params.Id);
     console.log(data);
     setIsAddedToFavorite(true);
   }
 
   async function DeleteFromFavorite() {
-    const data = await DeleteFromFavoriteAPI(params);
+    const data = await DeleteFromFavoriteAPI(params.Id);
     console.log(data);
     setIsAddedToFavorite(false);
   }
@@ -83,6 +83,7 @@ export default function AnimePage() {
     <>
       <Nav />
       <div
+        style={{ paddingTop: "2rem" }}
         className={
           context.theme === "dark" ? "container-dark" : "container-light"
         }

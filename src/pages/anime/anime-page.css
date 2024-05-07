@@ -10,8 +10,10 @@
 }
   
 .container-dark {
+  position: relative;
   margin: auto;
   padding: 2rem;
+  padding-top: 5rem;
   text-align: center;
   background-color: #3a1e3154;
   width: 80%;
@@ -64,7 +66,9 @@
 }
 .AnimeScreenShoot{
   width: 400px;
-  margin: 2rem 2rem 2rem ;
+  padding-top: 30px;
+  margin: 15px;
+  margin-bottom: 2rem;
   transition: transform 0.5s;
 }
 .AnimeScreenShoot:hover{
