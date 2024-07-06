@@ -46,7 +46,7 @@ export default function AnimeHome() {
   return (
     <>
       <Nav />
-      <div className="container">
+      <div className="container-dark container-padding-top">
         <Selectt />
         <InfiniteScroll
           dataLength={animes.length}

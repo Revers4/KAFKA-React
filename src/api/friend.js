@@ -61,9 +61,9 @@ export async function seeTheReqAPI(notSeenReqCount) {
   }
 }
 
-export async function friendsListAPI(params) {
+export async function friendsListAPI(params, limit) {
   const res = await fetch(
-    `http://localhost:3000/friends-list/${params.Login}`,
+    `http://localhost:3000/friends-list/${params.Login}?limit=${limit}`,
     {
       credentials: "include",
       headers: {
@@ -93,4 +93,21 @@ export async function removeAFriendAPI(friend_id) {
     const responseData = await response.json();
     return responseData;
   }
+}
+
+export async function friendDataAPI(login) {
+  const res = await fetch(
+    `http://localhost:3000/friend-data/${login}`,
+    {
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    throw new Error("Requset failed");
+  }
+  const data = await res.json();
+  return data;
 }

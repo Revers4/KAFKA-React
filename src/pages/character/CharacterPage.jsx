@@ -25,7 +25,7 @@ export default function AnimeCharacterPage() {
         <Nav />
         <div
           className={
-            context.theme === "dark" ? "container-dark" : "container-light"
+            context.theme === "dark" ? "container-dark container-padding-top" : "container-light container-padding-top"
           }
         >
           <h2>Loading......</h2>
@@ -39,7 +39,7 @@ export default function AnimeCharacterPage() {
       <Nav />
       <div
         className={
-          context.theme === "dark" ? "container-dark" : "container-light"
+          context.theme === "dark" ? "container-dark container-padding-top" : "container-light container-padding-top"
         }
       >
         <div>

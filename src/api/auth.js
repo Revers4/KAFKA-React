@@ -41,7 +41,9 @@ export async function refreshTokenAPI() {
     credentials: "include",
   });
   if (!res.ok) {
-    throw new Error("Refresh token failed");
+    // const data = "false"
+    // return data
+    // throw new Error("Refresh token failed");
   }
   return res.ok;
 }

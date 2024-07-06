@@ -9,12 +9,10 @@ import { ru } from "date-fns/locale/ru";
 const Comment = ({ comment, updateCommentText, deleteData }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(comment.comment);
-  const [commentId, setCommentId] = useState("");
   const usercontext = useContext(UserContext);
 
   const handleEdit = () => {
     setIsEditing(true),
-      setCommentId(comment.comment_id),
       setEditedText(comment.comment);
   };
 
@@ -87,9 +85,3 @@ const Comment = ({ comment, updateCommentText, deleteData }) => {
 };
 
 export default Comment;
-
-/**
- 
-
-
- */

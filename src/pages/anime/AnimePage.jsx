@@ -46,13 +46,11 @@ export default function AnimePage() {
 
   async function AddToFavorite() {
     const data = await addToFavoriteAPI(params.Id);
-    console.log(data);
     setIsAddedToFavorite(true);
   }
 
   async function DeleteFromFavorite() {
     const data = await DeleteFromFavoriteAPI(params.Id);
-    console.log(data);
     setIsAddedToFavorite(false);
   }
 
@@ -72,7 +70,7 @@ export default function AnimePage() {
     return (
       <>
         <Nav />
-        <div className="container">
+        <div className="container-dark container-padding-top">
           <div className="main">
             <h1>Loading.....</h1>
           </div>
@@ -83,9 +81,8 @@ export default function AnimePage() {
     <>
       <Nav />
       <div
-        style={{ paddingTop: "2rem" }}
         className={
-          context.theme === "dark" ? "container-dark" : "container-light"
+          context.theme === "dark" ? "container-dark container-padding-top" : "container-light container-padding-top"
         }
       >
         <div className="main">
@@ -152,7 +149,6 @@ export default function AnimePage() {
           ))}
         </div>
         <Comments2 />
-        {/* <Comments /> */}
       </div>
     </>
   );

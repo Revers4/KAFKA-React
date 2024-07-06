@@ -1,18 +1,31 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { DeleteFromFavoriteAPI, addToFavoriteAPI } from "../../api/favorites";
+import { DeleteFromFavoriteAPI, addToFavoriteAPI, addToWAPI } from "../../api/favorites";
+import { UserContext } from "../../App";
 
-export function Favorite({ anime }) {
+export function Favorite({ anime, params, type }) {
   const [isAdded, setIsAdded] = useState(true);
+  const userContext = useContext(UserContext)
+  // console.log(type.endPoint)
 
   async function AddToFavorite() {
-    const data = await addToFavoriteAPI(anime.id);
-    setIsAdded(true);
+    if (type.endPoint == "favorite") {
+      await addToFavoriteAPI(anime.id);
+      setIsAdded(true);
+    } else {
+      setIsAdded(true);
+      await addToWAPI(anime.id, type.endPoint)
+    }
   }
 
   async function DeleteFromFavorite() {
-    const data = await DeleteFromFavoriteAPI(anime.id);
-    setIsAdded(false);
+    if (type.endPoint == "favorite") {
+      await DeleteFromFavoriteAPI(anime.id);
+      setIsAdded(false);
+    } else {
+      setIsAdded(false);
+      await addToWAPI(anime.id, "remove")
+    }
   }
 
   return (
@@ -21,7 +34,7 @@ export function Favorite({ anime }) {
         <h2 className="CarouselName">{anime.russian}</h2>
         <img className="CarouselPoster" src={anime.poster.mainUrl} alt="404" />
       </Link>
-      <img
+      {userContext ? (userContext.user.login == params ? <img
         className="ProfilePageAddToFavorite"
         onClick={isAdded ? DeleteFromFavorite : AddToFavorite}
         src={
@@ -30,7 +43,7 @@ export function Favorite({ anime }) {
             : "https://hsr.keqingmains.com/wp-content/uploads/2023/08/Ability_Caressing_Moonlight.webp"
         }
         alt=""
-      />
+      /> : null) : null}
     </div>
   );
 }

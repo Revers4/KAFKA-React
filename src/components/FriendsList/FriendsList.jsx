@@ -7,6 +7,7 @@ import { Friend } from "./Friend";
 export default function FriendsList({ edit }) {
   const params = useParams();
   const [friends, setFriends] = useState([]);
+  const [active, setActive] = useState('')
 
   function removeAFriend(id) {
     setFriends((prev) => {
@@ -14,8 +15,12 @@ export default function FriendsList({ edit }) {
     });
   }
 
+  function activePerson(login) {
+    setActive(login)
+  }
+
   async function getFriends() {
-    const data = await friendsListAPI(params);
+    const data = await friendsListAPI(params, 5);
     setFriends(data);
   }
 
@@ -32,6 +37,8 @@ export default function FriendsList({ edit }) {
             edit={edit}
             key={friendData.login}
             friend={friendData}
+            activePerson={activePerson}
+            activeCondition={active}
           />
         ))}
       </ul>

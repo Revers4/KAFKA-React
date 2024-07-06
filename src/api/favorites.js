@@ -70,7 +70,7 @@ export async function CheckFavoriteAPI(params) {
 export async function addToWAPI(params, status) {
   const response = await fetch("http://localhost:3000/watch/anime", {
     body: JSON.stringify({
-      id: params.Id,
+      id: params,
       status: status,
     }),
     method: "POST",
@@ -148,9 +148,9 @@ export async function getFavoriteAnimeAPI(dataId, limit, page) {
   return Bbody.data.animes;
 }
 
-export async function getFavotiresAPI(Login) {
+export async function getFavotiresAPI(Login, status, page) {
   const res = await fetch(
-    `http://localhost:3000/favorites/animes/${Login}?status=watched&page=2&limit=2`,
+    `http://localhost:3000/favorites/animes/${Login}?status=${status}&page=${page}&limit=9`,
     {
       credentials: "include",
     }

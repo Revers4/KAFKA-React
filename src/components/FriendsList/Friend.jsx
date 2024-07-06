@@ -1,16 +1,29 @@
 import "./FriendsList.css";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { removeAFriendAPI } from "../../api/friend";
+import { UserContext } from "../../App";
 
-export function Friend({ friend, edit, remove }) {
+export function Friend({ friend, edit, remove, activePerson, activeCondition }) {
   const [active, setActive] = useState(false);
+  const userContext = useContext(UserContext);
+
+  function setOtherActive(login) {
+    if (!active) {
+      activePerson(login)
+    }
+  }
 
   async function removeAFriend() {
     remove(friend.id);
-    const data = await removeAFriendAPI(friend.id);
-    console.log(data);
+    await removeAFriendAPI(friend.id);
   }
+
+  useEffect(() => {
+    if (friend.login !== activeCondition) {
+      setActive(false)
+    }
+  }, [activeCondition])
 
   return (
     <li className="FriendsListli">
@@ -25,7 +38,7 @@ export function Friend({ friend, edit, remove }) {
       <div className="FriendListDiv">
         {edit ? (
           <img
-            onClick={() => setActive((prev) => !prev)}
+            onClick={() => { setActive((prev) => !prev), setOtherActive(friend.login) }}
             src={
               active
                 ? "http://localhost:3000/images/gun_active.png"
@@ -36,7 +49,11 @@ export function Friend({ friend, edit, remove }) {
         ) : null}
         {active ? (
           <div className="FriendDropDown">
-            <div>Сообщения</div>
+            <div>
+              <Link to={`/profile/${userContext.user.login}/messages?chat=${friend.login}`}>
+                Сообщения
+              </Link>
+            </div>
             <div onClick={removeAFriend} className="FriendDeletButton">
               Удалить из друзей
             </div>

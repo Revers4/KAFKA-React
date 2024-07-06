@@ -1,5 +1,5 @@
 #root {
-  height: 100%;
+  min-height: 100vh;
   background: linear-gradient(-45deg, #884530, #802346, #3a1e31, #9b3d94);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
@@ -20,7 +20,10 @@
   box-shadow: 4px 4px 36px 5px rgba(195, 0, 255, 0.2);
 }
 body {
-  height: 100%;
+  min-height: 100vh;
+}
+html{
+  min-height: 100%;
 }
 @keyframes gradient {
   0% {
@@ -36,3 +39,6 @@ body {
 a{
   text-decoration: none;
 }
+/* ::-webkit-scrollbar {
+    width: 1px;
+} */

@@ -3,7 +3,7 @@ export async function getProfileAPI() {
     credentials: "include",
   });
   if (!res.ok) {
-    throw new Error("Requset failed");
+    return false
   }
   const data = await res.json();
   return data;

@@ -1,8 +1,8 @@
 .CharacterPageH1Name{
-    display: flex;
     font-size: 38px;
     padding-bottom: 1rem;
     color: aliceblue;
+    text-align: left;
 }
 .CharacterPagePoster{
     width: 300px;

@@ -1,6 +1,5 @@
 import "./Select.css";
 import Select from "react-dropdown-select";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { addToWAPI } from "../../api/favorites";
 
@@ -32,6 +31,11 @@ export default function Select2({ status }) {
       english: "Trash",
       russian: "Мусор",
     },
+    {
+      status: "remove",
+      english: "Remove from bookmarks",
+      russian: "Убрать из закладок",
+    }
   ];
 
   return (
@@ -58,7 +62,7 @@ export default function Select2({ status }) {
         onChange={(e) => {
           async function add() {
             const status = e[0].status;
-            const data = await addToWAPI(params, status);
+            await addToWAPI(params.Id, status);
           }
           add();
         }}

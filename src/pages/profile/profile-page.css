@@ -12,19 +12,17 @@
     color: aliceblue;
     font-weight: 500;
 }
-.ProfileInfo{
-    padding-top: 59px;
-}
 .ProfileDiv{
     display: flex;
+    padding-top: 59px;
     margin-bottom: 2rem;
 }
 .ProfileFriends{
     border: #13020d 0.5px solid;
     border-radius: 8px;
+    margin-right: 2rem;
     padding: 12px;
     min-height: 150px;
-    margin-right: 4rem;
 }
 .ProfileSubHeadline{
     min-width: 500px;
@@ -80,6 +78,7 @@
 .ProfileChange{
     min-height: 30px;
     margin-top: 4px;
+    /* padding: 10px; */
     display: flex;
 }
 .ProfileAvatarDiv{
@@ -94,11 +93,17 @@
     margin-left: 5px;
 }
 .ProfilePageMain{
+    width: 100%;
+    overflow-x: hidden;
     display: flex;
     justify-content: space-between;
 }
 .ProfileFavoriteDiv{
-    min-height: 296px;
+    min-width: 554px;
+    min-height: 322px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     border: 0.5px solid #13020d;
     border-radius: 8px;
     padding: 12px 26px 12px 26px;

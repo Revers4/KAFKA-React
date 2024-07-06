@@ -1,8 +1,8 @@
 .ProfileNavBar{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    left: 0;
+    padding-top: 57px;
+    width: 80%;
+    margin: auto;
+    background-color: #3a1e3154;
 }
 .ProfileNavBar ul{
     display: flex;

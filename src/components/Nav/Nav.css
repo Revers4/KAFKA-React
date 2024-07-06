@@ -1,9 +1,10 @@
 .MainNav {
-    z-index: 1;
+    z-index: 999;
     padding: 3px 10px;
     display: flex;
     background-color: #13020d;
-    position: relative;
+    position: fixed;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
 }

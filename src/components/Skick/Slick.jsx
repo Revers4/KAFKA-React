@@ -7,10 +7,13 @@ import React, { Component } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./slick.css";
+import useSize from "../../hooks/useSize"
 
 export default function Carousel() {
   const params = useParams();
   const [fAnimes, setFAnimes] = useState([]);
+  const size = useSize()
+
 
   async function getFavorite() {
     const data = await getFavotireAPI(params.Login);
@@ -22,7 +25,6 @@ export default function Carousel() {
       return e.id;
     });
     const fAnime = await getFavoriteAnimeAPI(dataId, 5, 1);
-    console.log(fAnime);
     setFAnimes(fAnime);
   }
 
@@ -35,15 +37,18 @@ export default function Carousel() {
     centerMode: true,
     infinite: true,
     centerPadding: "0px",
-    slidesToShow: 3,
+    slidesToShow: size[0] > 1600 ? 3 : 2,
     speed: 700,
     autoplay: true,
     autoplaySpeed: 5000,
   };
   return (
     <>
-      {fAnimes.length > 3 ? (
-        <div className="slider-container">
+      <div className="slick-loader">
+        <div class="lds-dual-ring"></div>
+      </div>
+      {/* {fAnimes.length > 3 ? (
+        <div className="slider-container" style={{ maxWidth: size[0] < 1600 ? '300px' : "500px" }}>
           <Slider {...settings}>
             {fAnimes.map((anime) => (
               <Link className="Plate" key={anime.id} to={`/anime/${anime.id}`}>
@@ -72,7 +77,7 @@ export default function Carousel() {
             </Link>
           ))}
         </div>
-      )}
+      )} */}
     </>
   );
 }

@@ -1,0 +1,193 @@
+.MessageFriendsListDiv{
+    width: 60%;
+    min-height: 86vh;
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    border: #13020d 0.5px solid;
+    border-radius: 8px;
+}
+.MessageFriendsSearch{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: 100%;
+    font-size: large;
+    height: 40px;
+    color: #fefaf8;
+}
+.MessageFriendsSearch::placeholder {
+    color: #fefaf8;
+}
+.MessageFriendsUl{
+    text-align: left;
+}
+.MessageFriendsUl li{
+    cursor: pointer;
+    display: flex;
+    padding: 8px 0px 8px 1rem;
+    border-bottom: 0.5px solid #13020d;
+}
+.MessageFriendsUl li:hover{
+    background-color: #13020d1f;
+    transition: 0.3s;
+}
+.MessageFriendsUl img:hover{
+    scale: 1.1;
+    transition: 0.3s;
+}
+.MessageFriendsUl img{
+    margin-right: 8px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 0.5px solid #13020d;
+    height: 70px;
+    width: 70px;
+}
+.MessageFriendsUl p{
+    font-size: 22px;
+    color: #9b3d94;
+    text-shadow: 2px 1px 2px rgba(0,0,0,0.6);
+}
+.MessageFriendsMain{
+    width: 100%;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+.MessageFriendsSidePart{
+    border: 0.5px solid #13020d;
+    background-color: #3a1e311a;
+    border-radius: 8px;
+    padding: 8px 8px 4px 8px;
+    margin-right: 1rem;
+    width: 24%;
+    height: fit-content;
+}
+.MessageFriendsOff{
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 4px;
+    font-size: 18px;
+    text-align: left;
+    color: #fefaf8;
+    border: 1px solid transparent;
+}
+.MessageFriendsActive{
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 4px;
+    font-size: 18px;
+    text-align: left;
+    color: #fefaf8;
+    border: 1px solid transparent;
+    background-color: #ff00ee3b;
+    -webkit-box-shadow: 0px 12px 27px 11px rgba(167, 46, 110, 0.25);
+    -moz-box-shadow: 0px 12px 27px 11px rgba(167, 46, 110, 0.25);
+    box-shadow: 0px 2px 27px 1px rgba(167, 46, 110, 0.25);
+    border: 0.5px solid #13020d;
+}
+.MessageFriendsOff:hover{
+    background-color: #3a1e3133;
+    border: 0.5px solid #13020d;
+}
+.MessageDialog{
+    width: 50%;
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: #13020d 0.5px solid;
+    border-radius: 8px;
+}
+.MessageDialogAvatar {
+    margin-right: 1rem;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+.MessageHeader{
+    background-color: #3a1e312d;
+    border-bottom: 0.5px solid #13020d;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.MessageDialog header div{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.MessageDialogQuit img{
+    width: 30px;
+}
+.MessageDialogQuit p{
+    padding: 0px 10px 0px 5px;
+    font-size: 20px;
+    color: #fefaf8;
+}
+.MessageSender{
+    min-height: 60px;
+    background-color: #3a1e312d;
+    display: flex;
+    align-items: center;
+    border-top: 0.5px solid #13020d;
+}
+.MessageSender input{
+    width: 100%;
+}
+.MessageFriendli div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.MessageFriendli a{
+    margin-right: 1.5vh;
+    border-right: 0.5px solid #13020d5d;
+}
+.MessageFriendli div header{
+    display: flex;
+    justify-content: space-between;
+}
+.MessageFriendli div img{
+    height: 35px;
+    width: 35px;
+    border: none;
+}
+.MessageFriendli div span{
+    display: flex;
+    align-items: flex-end;
+}
+.MessageP{
+    color: #fefaf8 !important;
+    font-size: 18px !important;
+}
+.MessagesUL{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.MessagesUL li{
+    display: flex;
+    text-align: left;
+    padding: 8px;
+}
+.MessagesUL li div{
+    width: 100%;
+    padding: 2px 0px 2px 0px;
+}
+.MessagesUL li div p{
+    color: #fefaf8;
+    font-size: 18px;
+}
+#scrollableDiv{
+    height: 72vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Nav.css";
-import { useContext, useState, useEffect } from "react";
-import { ThemeContext, UserContext, ReqContext } from "../../App";
+import { useContext, useState } from "react";
+import { ThemeContext, UserContext } from "../../App";
 import Modal from "../Modal/Modal";
 import ReqBar from "../ReqBar/ReqBar";
 import { logoutAPI } from "../../api/auth";
@@ -24,7 +24,7 @@ export default function Nav() {
 
   async function logout() {
     await logoutAPI();
-    userContext.setUser(null);
+    userContext.setUser(false);
   }
 
   return (

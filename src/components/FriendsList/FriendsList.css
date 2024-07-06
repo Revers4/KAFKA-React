@@ -41,6 +41,9 @@
     padding: 4px;
     cursor: pointer;
 }
+.FriendDropDown div a{
+    color: #fefaf8;
+}
 .FriendDeletButton{
     margin-bottom: 4px !important;
     border: 1px solid #ff170f8c !important;

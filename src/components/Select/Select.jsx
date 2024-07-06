@@ -2,12 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { genres } from "../../genres-list";
 import "./Select.css";
 import Select from "react-dropdown-select";
+
 export default function Selectt() {
   const navigate = useNavigate();
   let genreIdsString = "";
-  const colorStyles = {
-    control: (styles) => ({ ...styles, backgroundColor: "white" }),
-  };
   return (
     <div className="selectDivs">
       <Select

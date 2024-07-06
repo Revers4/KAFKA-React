@@ -78,7 +78,6 @@ const Comments = () => {
     setComments([newComment[0], ...comments]);
     setPostComment("");
   }
-  console.log(userContext);
   return (
     <>
       <div
@@ -117,7 +116,7 @@ const Comments = () => {
                 <div className="CommentLogin">{userContext.user.login}</div>
               </div>
             ) : (
-              <div>ты лох</div>
+              null
             )}
           </header>
           <TextareaAutosize

@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { UserContext, ThemeContext, ReqContext } from "../../App";
 import "./profile-page.css";
 import { getProfileeAPI, changeProfileAPI } from "../../api/profile";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import Carousel from "../../components/Skick/Slick";
 import axios from "axios";
 import { sendARequestsAPI, answerARequestAPI } from "../../api/friend";
@@ -26,6 +26,7 @@ export default function ProfilePage() {
   const [edit, setEdit] = useState(false);
   const [img, setImg] = useState(null);
   const [isFriend, setIsFriend] = useState("NoOne");
+
 
   function isThisYou() {
     if (userContext.user) {
@@ -84,7 +85,7 @@ export default function ProfilePage() {
             avatar_url: res.data,
           }));
         });
-    } catch (error) {}
+    } catch (error) { }
   }, [img]);
 
   useEffect(() => {
@@ -125,7 +126,7 @@ export default function ProfilePage() {
     return (
       <>
         <Nav />
-        <div className="container">
+        <div className="container-dark">
           <div className="main">
             <h1>THIS PROFILE DOESN'T EXIST</h1>
           </div>
@@ -137,13 +138,13 @@ export default function ProfilePage() {
     return (
       <>
         <Nav />
+        <ProfNavBar page={page} params={params} />
         <div
           className={
             context.theme === "dark" ? "container-dark" : "container-light"
           }
         >
           <div className="ProfilePageMain">
-            <ProfNavBar page={page} params={params} />
             <div className="ProfileAvatarDiv">
               {changeLogin ? (
                 <>
@@ -214,7 +215,7 @@ export default function ProfilePage() {
                       </div>
                     </div>
                   ) : isFriend == "Friend" ? (
-                    <div>Вы друзьяшки</div>
+                    <Link to={`/profile/${userContext.user.login}/messages?chat=${params.Login}`} >Отправить сообщение</Link>
                   ) : (
                     <button onClick={sendAReqest}>Добавить в друзья</button>
                   )
@@ -230,16 +231,14 @@ export default function ProfilePage() {
                 ) : null}
               </div>
             </div>
-            <div className="ProfileInfo">
-              <div className="ProfileDiv">
-                <div className="ProfileFriends">
-                  <div className="ProfileSubHeadline2">Друзья</div>
-                  <FriendsList edit={edit} />
-                </div>
-                <div className="ProfileFavoriteDiv">
-                  <div className="ProfileSubHeadline">Избранное</div>
-                  <Carousel />
-                </div>
+            <div className="ProfileDiv">
+              <div className="ProfileFriends">
+                <div className="ProfileSubHeadline2">Друзья</div>
+                <FriendsList edit={edit} />
+              </div>
+              <div className="ProfileFavoriteDiv">
+                <div className="ProfileSubHeadline">Избранное</div>
+                <Carousel />
               </div>
             </div>
           </div>
@@ -249,8 +248,8 @@ export default function ProfilePage() {
   return (
     <>
       <Nav />
+      <ProfNavBar page={page} params={params} />
       <div className="container-dark">
-        <ProfNavBar page={page} params={params} />
         <div className="main">
           <h1>Loading.....</h1>
         </div>
